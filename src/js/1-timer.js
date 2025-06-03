@@ -46,8 +46,8 @@ flatpickr(dataPicker, options);
 
 
 btnStart.addEventListener("click", () => {
+  dataPicker.disabled = true;
   btnStart.disabled = true;
-  dataPicker.disabled = true
   intervalId = setInterval(() => {
 
     const currentTime = new Date();
@@ -55,10 +55,12 @@ btnStart.addEventListener("click", () => {
 
     if (diffences <= 0) {
       clearInterval(intervalId);
+      btnStart.disabled = false;
+      dataPicker.disabled = false;
       return;
     }
 
-    btnStart.disabled = true;
+    
     const time = convertMs(diffences);
     updateTimerDisplay(time);
 
