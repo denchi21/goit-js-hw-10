@@ -14,7 +14,7 @@ const second = document.querySelector(`span[data-seconds]`);
 let intervalId = null;
 let userDate = null;
 
-
+btnStart.disabled = true;
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -46,7 +46,8 @@ flatpickr(dataPicker, options);
 
 
 btnStart.addEventListener("click", () => {
-
+  btnStart.disabled = true;
+  dataPicker.disabled = true
   intervalId = setInterval(() => {
 
     const currentTime = new Date();
